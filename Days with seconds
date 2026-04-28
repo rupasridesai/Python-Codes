@@ -1,0 +1,6 @@
+No of days with Seconds:
+
+from datetime import date
+a=date(2006,2,18)
+b=date(2026,4,28)
+print("No of Days Lived!!",(b-a).total_seconds())
