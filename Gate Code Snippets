@@ -1,0 +1,20 @@
+Python Codes:
+
+1.
+def flower(a):
+    if a==4:
+        return
+    print(a+10,end=" ")
+    flower(a+1)
+    print(a,end=" ")
+    
+flower(1)
+2.
+def raju(a):
+    if a==1:
+        return
+    a-=1
+    raju(a)
+    print("Hai")
+    raju(a)
+raju(5)
