@@ -1,0 +1,14 @@
+Prime Factorization:
+
+def primes(a):
+    if a==1:
+        return
+    i=2
+    while(a%i!=0):
+        i=i+1
+    print(i,end=" ")
+    primes(a/i)
+    
+    
+print("Enter any Num:")
+primes(1000)
