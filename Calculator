@@ -1,0 +1,97 @@
+Calculator:
+
+from tkinter import *
+a = Tk()
+a.geometry("430x580")
+a.title("Calculator!!")
+a.configure(bg="#FFD6E8")   # pastel pink background
+
+x = Entry(
+    a,
+    width=16,
+    font=("Comic Sans MS", 28, "bold"),
+    bd=0,
+    bg="#FFF0F5",
+    fg="#D46A92",
+    justify="right"
+)
+x.grid(row=0, column=0, columnspan=4, padx=20, pady=25, ipady=18)
+
+def click(num):
+    curr = x.get()
+    x.delete(0, END)
+    x.insert(0, str(curr) + str(num))
+
+def clear():
+    x.delete(0, END)
+
+def equal():
+    try:
+        res = eval(x.get())
+        x.delete(0, END)
+        x.insert(0, res)
+    except:
+        x.delete(0, END)
+        x.insert(0, "Error")
+
+
+# Button Styles
+btn_style = {
+    "font": ("Comic Sans MS", 14, "bold"),
+    "width": 7,
+    "height": 2,
+    "bg": "#FFB7D5",
+    "fg": "white",
+    "activebackground": "#FF9FC8",
+    "activeforeground": "white",
+    "bd": 0,
+    "relief": "flat",
+    "cursor": "hand2"
+}
+
+op_style = {
+    "font": ("Comic Sans MS", 14, "bold"),
+    "width": 7,
+    "height": 2,
+    "bg": "#F78FB3",
+    "fg": "white",
+    "activebackground": "#F368A1",
+    "activeforeground": "white",
+    "bd": 0,
+    "relief": "flat",
+    "cursor": "hand2"
+}
+
+
+Button(a, text="1", command=lambda: click(1), **btn_style).grid(row=1, column=0, padx=8, pady=8)
+Button(a, text="2", command=lambda: click(2), **btn_style).grid(row=1, column=1, padx=8, pady=8)
+Button(a, text="3", command=lambda: click(3), **btn_style).grid(row=1, column=2, padx=8, pady=8)
+Button(a, text="+", command=lambda: click("+"), **op_style).grid(row=1, column=3, padx=8, pady=8)
+
+Button(a, text="4", command=lambda: click(4), **btn_style).grid(row=2, column=0, padx=8, pady=8)
+Button(a, text="5", command=lambda: click(5), **btn_style).grid(row=2, column=1, padx=8, pady=8)
+Button(a, text="6", command=lambda: click(6), **btn_style).grid(row=2, column=2, padx=8, pady=8)
+Button(a, text="-", command=lambda: click("-"), **op_style).grid(row=2, column=3, padx=8, pady=8)
+
+
+Button(a, text="7", command=lambda: click(7), **btn_style).grid(row=3, column=0, padx=8, pady=8)
+Button(a, text="8", command=lambda: click(8), **btn_style).grid(row=3, column=1, padx=8, pady=8)
+Button(a, text="9", command=lambda: click(9), **btn_style).grid(row=3, column=2, padx=8, pady=8)
+Button(a, text="×", command=lambda: click("*"), **op_style).grid(row=3, column=3, padx=8, pady=8)
+
+
+Button(a, text="C", command=clear, **op_style).grid(row=4, column=0, padx=8, pady=8)
+Button(a, text="0", command=lambda: click(0), **btn_style).grid(row=4, column=1, padx=8, pady=8)
+Button(a, text="=", command=equal, **op_style).grid(row=4, column=2, padx=8, pady=8)
+Button(a, text="÷", command=lambda: click("/"), **op_style).grid(row=4, column=3, padx=8, pady=8)
+
+
+Label(
+    a,
+    text="૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა",
+    font=("Comic Sans MS", 18, "bold"),
+    bg="#FFD6E8",
+    fg="#D46A92"
+).grid(row=5, column=0, columnspan=4, pady=20)
+
+a.mainloop()
